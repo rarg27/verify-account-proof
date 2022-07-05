@@ -58,14 +58,9 @@
   dependencies:
     "glob" "7.1.7"
 
-"@next/swc-linux-x64-gnu@12.1.5":
-  "integrity" "sha512-O2ErUTvCJ6DkNTSr9pbu1n3tcqykqE/ebty1rwClzIYdOgpB3T2MfEPP+K7GhUR87wmN/hlihO9ch7qpVFDGKw=="
-  "resolved" "https://registry.npmjs.org/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-12.1.5.tgz"
-  "version" "12.1.5"
-
-"@next/swc-linux-x64-musl@12.1.5":
-  "integrity" "sha512-1eIlZmlO/VRjxxzUBcVosf54AFU3ltAzHi+BJA+9U/lPxCYIsT+R4uO3QksRzRjKWhVQMRjEnlXyyq5SKJm7BA=="
-  "resolved" "https://registry.npmjs.org/@next/swc-linux-x64-musl/-/swc-linux-x64-musl-12.1.5.tgz"
+"@next/swc-win32-x64-msvc@12.1.5":
+  "integrity" "sha512-/SoXW1Ntpmpw3AXAzfDRaQidnd8kbZ2oSni8u5z0yw6t4RwJvmdZy1eOaAADRThWKV+2oU90++LSnXJIwBRWYQ=="
+  "resolved" "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.1.5.tgz"
   "version" "12.1.5"
 
 "@nodelib/fs.scandir@2.1.5":
@@ -89,101 +84,111 @@
     "@nodelib/fs.scandir" "2.1.5"
     "fastq" "^1.6.0"
 
-"@onflow/fcl@^1.0.0-alpha.1":
-  "integrity" "sha512-zSVSmrAGYi5vsJHjMA/MK2nMNYLcZ/teoxCQtDEAhQQaBzKxMjTxQBlF2V0b1g8Na5Cqb27YAlM3+QXyxwpmCA=="
-  "resolved" "https://registry.npmjs.org/@onflow/fcl/-/fcl-1.0.0-alpha.1.tgz"
-  "version" "1.0.0-alpha.1"
+"@onflow/config@^1.0.2":
+  "integrity" "sha512-aJfhfmf9CaPn3xa5Yfe1Pp6O/LqN/G+OAFV2yMN2iknBVbXYXh7ll509UlEABWv4UGafsJojxAB6lfujGlNRlA=="
+  "resolved" "https://registry.npmjs.org/@onflow/config/-/config-1.0.2.tgz"
+  "version" "1.0.2"
   dependencies:
+    "@onflow/util-actor" "^1.1.0"
+
+"@onflow/fcl@^1.1.1-alpha.0":
+  "integrity" "sha512-pzG6UzqgXMVbgT+ElMJZc21XLEHaOvkAnC1DY4Xpv4zxPQo/4RLqIMyxbf6oyE4WGoyJjDOjtpwg/XphrH3aGg=="
+  "resolved" "https://registry.npmjs.org/@onflow/fcl/-/fcl-1.1.1-alpha.0.tgz"
+  "version" "1.1.1-alpha.0"
+  dependencies:
+    "@onflow/config" "^1.0.2"
     "@onflow/interaction" "0.0.11"
-    "@onflow/rlp" "^1.0.0-alpha.0"
-    "@onflow/sdk" "^1.0.0-alpha.0"
-    "@onflow/types" "^1.0.0-alpha.0"
-    "@onflow/util-actor" "^1.0.0-alpha.0"
-    "@onflow/util-address" "^1.0.0-alpha.0"
-    "@onflow/util-invariant" "^1.0.0-alpha.0"
-    "@onflow/util-template" "^1.0.0-alpha.0"
-    "@onflow/util-uid" "^1.0.0-alpha.0"
+    "@onflow/rlp" "^1.0.1"
+    "@onflow/sdk" "^1.1.1-alpha.0"
+    "@onflow/types" "^1.0.2"
+    "@onflow/util-actor" "^1.1.0"
+    "@onflow/util-address" "^1.0.1"
+    "@onflow/util-invariant" "^1.0.1"
+    "@onflow/util-logger" "^1.1.1-alpha.0"
+    "@onflow/util-template" "^1.0.2"
+    "@onflow/util-uid" "^1.0.1"
 
 "@onflow/interaction@0.0.11":
   "integrity" "sha512-Xuq1Mmx6Wyba/F/L+QLQs0yJeQDsIDwy5SKk5vrCuVgIj0yD8k506g5L8ODrbM1LWll8i0tQsoOi0F85vNl5sA=="
   "resolved" "https://registry.npmjs.org/@onflow/interaction/-/interaction-0.0.11.tgz"
   "version" "0.0.11"
 
-"@onflow/rlp@^1.0.0-alpha.0":
-  "integrity" "sha512-tkYw/o9PwohmkCUMF8z8sddYaroCmlHvWMyjqiTJssy+dF5HSdK5d15P8f69XLSam2ZT/JAU+MsNmZJBoPkCvA=="
-  "resolved" "https://registry.npmjs.org/@onflow/rlp/-/rlp-1.0.0-alpha.0.tgz"
-  "version" "1.0.0-alpha.0"
+"@onflow/rlp@^1.0.1":
+  "integrity" "sha512-n4zEU8e08isWfC6F2FL4wduIFoMgqJQXTHI93tUTR3Fe7u50qlvkX4FidNC87f5klkhSWrypqg8/+7wL+QHmeQ=="
+  "resolved" "https://registry.npmjs.org/@onflow/rlp/-/rlp-1.0.1.tgz"
+  "version" "1.0.1"
   dependencies:
     "buffer" "^6.0.3"
 
-"@onflow/sdk@^1.0.0-alpha.0":
-  "integrity" "sha512-yIeMfji3aE04d7RFoE16nOngMlob/sdTAQAyg0KKO9+hMVWjctohOZAoI1VzishJy+2uJXOuVtLJU9SzLpgVIw=="
-  "resolved" "https://registry.npmjs.org/@onflow/sdk/-/sdk-1.0.0-alpha.0.tgz"
-  "version" "1.0.0-alpha.0"
+"@onflow/sdk@^1.1.1-alpha.0":
+  "integrity" "sha512-3wMKOIPyS92dhtReiRtQ24K/0edTjwPGPIj/c0clQW8IHFg+PqAk1YM1uIg3eCYWgeTfme/1TDXDYaDbiDB11g=="
+  "resolved" "https://registry.npmjs.org/@onflow/sdk/-/sdk-1.1.1-alpha.0.tgz"
+  "version" "1.1.1-alpha.0"
   dependencies:
-    "@onflow/rlp" "^1.0.0-alpha.0"
-    "@onflow/transport-http" "^1.0.0-alpha.0"
-    "@onflow/util-actor" "^1.0.0-alpha.0"
-    "@onflow/util-address" "^1.0.0-alpha.0"
-    "@onflow/util-invariant" "^1.0.0-alpha.0"
-    "@onflow/util-logger" "^1.0.0-alpha.0"
-    "@onflow/util-template" "^1.0.0-alpha.0"
+    "@onflow/config" "^1.0.2"
+    "@onflow/rlp" "^1.0.1"
+    "@onflow/transport-http" "^1.3.1-alpha.0"
+    "@onflow/util-actor" "^1.1.0"
+    "@onflow/util-address" "^1.0.1"
+    "@onflow/util-invariant" "^1.0.1"
+    "@onflow/util-logger" "^1.1.1-alpha.0"
+    "@onflow/util-template" "^1.0.2"
     "deepmerge" "^4.2.2"
     "sha3" "^2.1.4"
 
-"@onflow/transport-http@^1.0.0-alpha.0":
-  "integrity" "sha512-q7Whu//2m2f5oVb9ODBIUZIS9/a945XUvKacYd3eEgpceE1moCVmNjeGM1VRMd3Fp1mTWlimmE/lGuh+JgEo3g=="
-  "resolved" "https://registry.npmjs.org/@onflow/transport-http/-/transport-http-1.0.0-alpha.0.tgz"
-  "version" "1.0.0-alpha.0"
+"@onflow/transport-http@^1.3.1-alpha.0":
+  "integrity" "sha512-OHGV3K77J22q9NM8LNh7z9DszZjDdbanT1/YhfJuB9mK1/bx8xtmy16EW0HszW4Vvr60eTJHFyhCddjk54zJDA=="
+  "resolved" "https://registry.npmjs.org/@onflow/transport-http/-/transport-http-1.3.1-alpha.0.tgz"
+  "version" "1.3.1-alpha.0"
   dependencies:
-    "@onflow/util-address" "^1.0.0-alpha.0"
-    "@onflow/util-invariant" "^1.0.0-alpha.0"
-    "@onflow/util-node-http-modules" "^1.0.0-alpha.0"
-    "@onflow/util-template" "^1.0.0-alpha.0"
+    "@onflow/util-address" "^1.0.1"
+    "@onflow/util-invariant" "^1.0.1"
+    "@onflow/util-node-http-modules" "^1.0.2"
+    "@onflow/util-template" "^1.0.2"
 
-"@onflow/types@^1.0.0-alpha.0":
-  "integrity" "sha512-ZKaQ2p0/uwhalCeGjxnPQG6w8wVWwhZhdSYe9OAXVB/0UHCIypkKp9a9FlfZMkvPWGmDXnuqW46mxbazHtN1Sw=="
-  "resolved" "https://registry.npmjs.org/@onflow/types/-/types-1.0.0-alpha.0.tgz"
-  "version" "1.0.0-alpha.0"
+"@onflow/types@^1.0.2":
+  "integrity" "sha512-MsptFYpwGvTXp5NZhW7kaxSqkYUkbwdEll3HwFOXKYM7ssvWg8KJPMcP2lym85j+qvQdnIESXvh+KiWescdiew=="
+  "resolved" "https://registry.npmjs.org/@onflow/types/-/types-1.0.2.tgz"
+  "version" "1.0.2"
 
-"@onflow/util-actor@^1.0.0-alpha.0":
-  "integrity" "sha512-iPwtBJHNDNfBUInGoiv6oDpGARNX+uoX761RjeLTqTAwwBAe6Hsz0J54GSgT+CUskOigkKf6NBoc05lozRPojA=="
-  "resolved" "https://registry.npmjs.org/@onflow/util-actor/-/util-actor-1.0.0-alpha.0.tgz"
-  "version" "1.0.0-alpha.0"
+"@onflow/util-actor@^1.1.0":
+  "integrity" "sha512-VUe6RWvmhmNk71qfZA/WDe5H2vTvyoWF0jraSelhrxY4221QnLpfbmCCqIHMKTK/r21OcmaMbbYvfziMDY5i2Q=="
+  "resolved" "https://registry.npmjs.org/@onflow/util-actor/-/util-actor-1.1.0.tgz"
+  "version" "1.1.0"
   dependencies:
     "queue-microtask" "1.1.2"
 
-"@onflow/util-address@^1.0.0-alpha.0":
-  "integrity" "sha512-cfM44grW0Uqiub1EklUnTywjHcCnmnUSmUFPdIVyotgJMHjSDUysIbvdil7HF+efJXQobSLEbSGD12TT2AHPwg=="
-  "resolved" "https://registry.npmjs.org/@onflow/util-address/-/util-address-1.0.0-alpha.0.tgz"
-  "version" "1.0.0-alpha.0"
+"@onflow/util-address@^1.0.1":
+  "integrity" "sha512-KanTfsZTBS4iETegtNWDfmQEXd7FapSyTm//N0tdF6hVoTxLI/DNd0Y39adhQasAyrO294q/I72wQUVO+WT7Fg=="
+  "resolved" "https://registry.npmjs.org/@onflow/util-address/-/util-address-1.0.1.tgz"
+  "version" "1.0.1"
 
-"@onflow/util-invariant@^1.0.0-alpha.0":
-  "integrity" "sha512-4uueS/51kSF5lT2E8HnPxCqjZLNpGjrwRRwkdT0U8riu8rfzVuIpVzRQNjrNmSs6egxieHogJdId1DfCPTEdUg=="
-  "resolved" "https://registry.npmjs.org/@onflow/util-invariant/-/util-invariant-1.0.0-alpha.0.tgz"
-  "version" "1.0.0-alpha.0"
+"@onflow/util-invariant@^1.0.1":
+  "integrity" "sha512-FYLgxASDmD2qVru8G8MX9y3jE8DFie1fk7lWnWndnJvsO94/jmZaql73ytmZme37TQoTWSNfilAgU9T0HcG/gA=="
+  "resolved" "https://registry.npmjs.org/@onflow/util-invariant/-/util-invariant-1.0.1.tgz"
+  "version" "1.0.1"
 
-"@onflow/util-logger@^1.0.0-alpha.0":
-  "integrity" "sha512-X9Me52yIEe9woAXfNppWCykvFvQJCSzTdc4e7VzyWlqRfe4jpVO1FqHxh00M71fm6EdjBe69VHNc6CKRKKWKJA=="
-  "resolved" "https://registry.npmjs.org/@onflow/util-logger/-/util-logger-1.0.0-alpha.0.tgz"
-  "version" "1.0.0-alpha.0"
+"@onflow/util-logger@^1.1.1-alpha.0":
+  "integrity" "sha512-zchcmzIkKOYGW6oDgwQDcR066QNRR5R5IRRFgn19mUU89R4/c9ycxatjUIfO4GZV2sK/zsa552MEBf+49Vk0rA=="
+  "resolved" "https://registry.npmjs.org/@onflow/util-logger/-/util-logger-1.1.1-alpha.0.tgz"
+  "version" "1.1.1-alpha.0"
   dependencies:
-    "@onflow/sdk" "^1.0.0-alpha.0"
+    "@onflow/sdk" "^1.1.1-alpha.0"
 
-"@onflow/util-node-http-modules@^1.0.0-alpha.0":
-  "integrity" "sha512-ui19cGVLOTDLsM6+7RTFqazPx1M+EGte4nBtm5Wt5HPWUeaX6HtYq+aFvM6+NdEjFSyc1lyKzuwiVrZyDudhPg=="
-  "resolved" "https://registry.npmjs.org/@onflow/util-node-http-modules/-/util-node-http-modules-1.0.0-alpha.0.tgz"
-  "version" "1.0.0-alpha.0"
+"@onflow/util-node-http-modules@^1.0.2":
+  "integrity" "sha512-aj+G1Q9Irk0SBFY3jFHPhxe5Tcfn6YKZULTnsEiedsLsanNoTIZ6RGGcD4Z/LEZp3mW9MIni8voPFJifrSND5w=="
+  "resolved" "https://registry.npmjs.org/@onflow/util-node-http-modules/-/util-node-http-modules-1.0.2.tgz"
+  "version" "1.0.2"
 
-"@onflow/util-template@^1.0.0-alpha.0":
-  "integrity" "sha512-tsz5WRs+IguEOlTYOGDDFz7XUUAE6DseknJ09A9Ncl2EgTT+JiBwoCb2DzlRb/lb2md7XversqBhBrrm/2OH8g=="
-  "resolved" "https://registry.npmjs.org/@onflow/util-template/-/util-template-1.0.0-alpha.0.tgz"
-  "version" "1.0.0-alpha.0"
+"@onflow/util-template@^1.0.2":
+  "integrity" "sha512-0tpAolNTozmtSohX5MNY3+3l6A4d4Hm9uORPmQmoKREMRgWTGUy6upVJR9Y298kpS7E18QMaiiwXXvs5xW4KLA=="
+  "resolved" "https://registry.npmjs.org/@onflow/util-template/-/util-template-1.0.2.tgz"
+  "version" "1.0.2"
 
-"@onflow/util-uid@^1.0.0-alpha.0":
-  "integrity" "sha512-cStdfqmlTNTB6qPBTTtXb2xdGPASGNafZzQUtGFqbXSdps2hiasr0jvFmRBn9n0Ute12EhY5CvFeckrXmpxWNg=="
-  "resolved" "https://registry.npmjs.org/@onflow/util-uid/-/util-uid-1.0.0-alpha.0.tgz"
-  "version" "1.0.0-alpha.0"
+"@onflow/util-uid@^1.0.1":
+  "integrity" "sha512-/CHK3AC8Ex2uUFmbmrVbp/NlmSfkVPUxbkImoBgjf0WecodD7yCFojYePfB8srjk+LsAyMP6iOmcyiMDYiaM6Q=="
+  "resolved" "https://registry.npmjs.org/@onflow/util-uid/-/util-uid-1.0.1.tgz"
+  "version" "1.0.1"
 
 "@rushstack/eslint-patch@1.0.8":
   "integrity" "sha512-ZK5v4bJwgXldAUA8r3q9YKfCwOqoHTK/ZqRjSeRXQrBXWouoPnS4MQtgC4AXGiiBuUu5wxrRgTlv0ktmM4P1Aw=="
@@ -876,19 +881,7 @@
   dependencies:
     "is-glob" "^4.0.3"
 
-"glob@^7.1.3", "glob@^7.1.6":
-  "integrity" "sha512-lmLf6gtyrPq8tTjSmrO94wBeQbFR3HbLHbuyD69wuyQkImp2hWqMGB47OX65FBkPffO641IP9jWa1z4ivqG26Q=="
-  "resolved" "https://registry.npmjs.org/glob/-/glob-7.2.0.tgz"
-  "version" "7.2.0"
-  dependencies:
-    "fs.realpath" "^1.0.0"
-    "inflight" "^1.0.4"
-    "inherits" "2"
-    "minimatch" "^3.0.4"
-    "once" "^1.3.0"
-    "path-is-absolute" "^1.0.0"
-
-"glob@7.1.7":
+"glob@^7.1.3", "glob@^7.1.6", "glob@7.1.7":
   "integrity" "sha512-OvD9ENzPLbegENnYP5UUfJIirTg4+XwMWGaQfQTY0JenxNvvIKP3U3/tAQSPIu/lHxXYSZmpXlUHeqAIdKzBLQ=="
   "resolved" "https://registry.npmjs.org/glob/-/glob-7.1.7.tgz"
   "version" "7.1.7"
@@ -1213,20 +1206,15 @@
   "resolved" "https://registry.npmjs.org/minimist/-/minimist-1.2.6.tgz"
   "version" "1.2.6"
 
-"ms@^2.1.1":
-  "integrity" "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="
-  "resolved" "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz"
-  "version" "2.1.3"
+"ms@^2.1.1", "ms@2.1.2":
+  "integrity" "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w=="
+  "resolved" "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz"
+  "version" "2.1.2"
 
 "ms@2.0.0":
   "integrity" "sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g="
   "resolved" "https://registry.npmjs.org/ms/-/ms-2.0.0.tgz"
   "version" "2.0.0"
-
-"ms@2.1.2":
-  "integrity" "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w=="
-  "resolved" "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz"
-  "version" "2.1.2"
 
 "nanoid@^3.1.30":
   "integrity" "sha512-p1sjXuopFs0xg+fPASzQ28agW1oHD7xDsd9Xkf3T15H3c/cifrFHVwrh74PdoklAPi+i7MdRsE47vm2r6JoB+w=="
@@ -1685,6 +1673,11 @@
   "integrity" "sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ=="
   "resolved" "https://registry.npmjs.org/type-fest/-/type-fest-0.20.2.tgz"
   "version" "0.20.2"
+
+"typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta", "typescript@>=3.3.1":
+  "integrity" "sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg=="
+  "resolved" "https://registry.npmjs.org/typescript/-/typescript-4.6.4.tgz"
+  "version" "4.6.4"
 
 "unbox-primitive@^1.0.1":
   "integrity" "sha512-tZU/3NqK3dA5gpE1KtyiJUrEB0lxnGkMFHptJ7q6ewdZ8s12QrODwNbhIJStmJkd1QDXa1NRA8aF2A1zk/Ypyw=="
