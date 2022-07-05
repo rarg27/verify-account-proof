@@ -14,8 +14,6 @@ export async function login() {
   //   limit: 1000,
   // })
 
-  console.log(fcl.current)
-
   const authz = await sdk.config().get("fcl.authz", fcl.currentUser().authorization)
   // const node = await config().get("accessNode.api")
 
@@ -29,17 +27,90 @@ export async function login() {
 
   console.log(ix)
 
-  let insideSigners = findInsideSigners(ix)
-  const outsidePayload = sdk.encodeTransactionEnvelope({
-    ...prepForEncoding(ix),
-    payloadSigs: insideSigners.map(id => ({
-      address: ix.accounts[id].addr,
-      keyId: ix.accounts[id].keyId,
-      sig: ix.accounts[id].signature,
-    })),
+  let insidePayload = sdk.encodeTransactionPayload(prepForEncoding(ix))
+  insidePayload = insidePayload.slice(64, insidePayload.length)
+  console.log(insidePayload)
+
+  const query = `
+pub fun main(
+    address: Address,
+    message: String,
+    keyIndices: [Int],
+    signatures: [String],
+    domainSeparationTag: String,
+): Int {
+    pre {
+        keyIndices.length == signatures.length : "Key index list length does not match signature list length"
+    }
+
+    let account = getAccount(address)
+    let messageBytes = message.decodeHex()
+
+    var totalWeight: UFix64 = 0.0
+    let seenKeyIndices: {Int: Bool} = {}
+
+    var i = 0
+
+    for keyIndex in keyIndices {
+
+        let accountKey = account.keys.get(keyIndex: keyIndex) ?? panic("Key provided does not exist on account")
+        let signature = signatures[i].decodeHex()
+
+        // Ensure this key index has not already been seen
+
+        if seenKeyIndices[accountKey.keyIndex] ?? false {
+            return 1
+        }
+
+        // Record the key index was seen
+
+        seenKeyIndices[accountKey.keyIndex] = true
+
+        // Ensure the key is not revoked
+
+        if accountKey.isRevoked {
+            return 2
+        }
+
+        // Ensure the signature is valid
+
+        if !accountKey.publicKey.verify(
+            signature: signature,
+            signedData: messageBytes,
+            domainSeparationTag: domainSeparationTag,
+            hashAlgorithm: accountKey.hashAlgorithm
+        ) {
+            return 3
+        }
+
+        totalWeight = totalWeight + accountKey.weight
+
+        i = i + 1
+    }
+    
+    return totalWeight >= 1000.0 ? 4 : 5
+}
+`
+
+  const user = await fcl.currentUser().snapshot()
+  const address = user.addr
+  const message = insidePayload
+  const keyIndices = [ix.accounts[ix.proposer].keyId]
+  const signaturesArr = [ix.accounts[ix.proposer].signature]
+  const domainSeparationTag = "FLOW-V0.0-transaction"
+
+  const response = await fcl.query({
+    cadence: query,
+    args: (arg, t) => [
+      arg(address, t.Address),
+      arg(message, t.String),
+      arg(keyIndices, t.Array([t.Int])),
+      arg(signaturesArr, t.Array([t.String])),
+      arg(domainSeparationTag, t.String),
+    ],
   })
 
-  console.log(outsidePayload)
+  console.log(response)
 
   // const builtInteraction = await sdk.build([
   //     sdk.transaction(INIT_ACCOUNT_CDC),
@@ -105,16 +176,4 @@ function prepForEncoding(ix) {
         return prev.find(item => item === current) ? prev : [...prev, current]
       }, []),
   }
-}
-
-function findInsideSigners(ix) {
-  // Inside Signers Are: (authorizers + proposer) - payer
-  let inside = new Set(ix.authorizations)
-  inside.add(ix.proposer)
-  if (Array.isArray(ix.payer)) {
-    ix.payer.forEach(p => inside.delete(p));
-  } else {
-    inside.delete(ix.payer)
-  }
-  return Array.from(inside)
 }
